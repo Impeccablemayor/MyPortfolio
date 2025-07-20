@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="~/MyPortfolio.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap"
         rel="stylesheet">
-
+        <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -75,7 +75,8 @@
                         class="block px-1 py-2 rounded-full hover:bg-blue-600 transition duration-300 hover:text-white">Services</a>
                     <a href="#contact"
                         class="block px-1 py-2 rounded-full hover:bg-blue-600 transition duration-300 hover:text-white">Contact</a>
-                    <a href="#resume" class="block px-1 py-2 rounded-full hover:bg-blue-600 transition duration-300 hover:text-white">Resume</a>
+                    <a href="#resume"
+                        class="block px-1 py-2 rounded-full hover:bg-blue-600 transition duration-300 hover:text-white">Resume</a>
                     <a href="#hire"
                         class="block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-center mb-4">Hire
                         Me</a>
@@ -96,7 +97,6 @@
         </div>
     </header>
 
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2025 - MyPortfolio - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -112,6 +112,10 @@
             menu.classList.toggle("hidden");
         });
     </script>
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
