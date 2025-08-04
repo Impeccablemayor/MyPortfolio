@@ -13,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap"
         rel="stylesheet">
         <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/hover.css" asp-append-version="true">
 </head>
+
 
 <body>
     <!-- Preloader Start -->
@@ -51,14 +53,14 @@
                     </div>
 
                     <!-- Navigation Links -->
-                    <div class="hidden sm:flex sm:items-center sm:space-x-6">
+                    <div class="hidden sm:flex sm:items-center sm:space-x-6 ">
                         <a asp-controller="Home" asp-action="Index"
-                            class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
-                        <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                            class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">Home</a>
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">About</a>
                         <a href="#services"
-                            class="text-gray-700 hover:text-blue-600 transition duration-300">Services</a>
-                        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
-                        <a href="#resume" class="text-gray-700 hover:text-blue-600 transition duration-300">Resume</a>
+                            class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">Services</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">Contact</a>
+                        <a href="#resume" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">Resume</a>
                         <a href="#hire"
                             class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300">Hire
                             Me</a>
@@ -89,13 +91,16 @@
                 @RenderBody()
             </main>
         </div>
-
-        <div class="container"></div>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-        </div>
     </header>
+    <div class="hidden md:block fixed top-0 left-0 w-full h-full pointer-events-none z-0">
+  <!-- Floating logos -->
+  <img src="~/images/csharp.png" class="floating-logo left-10 top-10" alt="C#" />
+  <img src="~/images/javascript.png" class="floating-logo right-20 top-40" alt="JavaScript" />
+  <img src="~/images/react.png" class="floating-logo left-20 bottom-20" alt="React" />
+  <img src="~/images/dotnet.png" class="floating-logo right-10 bottom-10" alt=".NET" />
+</div>
+
+
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -115,6 +120,16 @@
      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
+    duration:1000;
+    once: true;
+  </script>
+   <script>
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
   </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
