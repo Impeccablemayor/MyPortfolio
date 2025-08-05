@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="~/css/hover.css" asp-append-version="true">
 </head>
 
-
-<body>
+<body class="scroll-smooth bg-gray-100">
     <!-- Preloader Start -->
     <div id="preloader" class="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
         <div class="spinner mb-4">
@@ -31,10 +30,12 @@
     <!-- Preloader End -->
 
     <header class="max-w-[90rem] mx-auto">
-        <nav class="flex justify-center py-4">
-            <div
-                class="bg-white/70 backdrop-blur-md shadow-lg border border-gray-200 rounded-2xl px-4 py-1 w-full max-w-7xl">
+        <nav id="navbar" class="flex justify-center py-4 fixed top-0 left-0 w-full z-50 transition-transform duration-500 ease-in-out">
+            
+            <div class="bg-white/70 backdrop-blur-md shadow-lg border border-gray-200 rounded-2xl px-4 py-1 w-full max-w-7xl">
+                
                 <div class="flex justify-between items-center h-16">
+                    
                     <!-- Logo -->
                     <div class="flex items-center">
                         <a asp-area="" asp-controller="Home" asp-action="Index"
@@ -60,7 +61,7 @@
                         <a href="#services"
                             class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">Services</a>
                         <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">Contact</a>
-                        <a href="#resume" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">Resume</a>
+                        <a href="#projects" class="text-gray-700 hover:text-blue-600 transition duration-300 hover-underline">My Projects</a>
                         <a href="#hire"
                             class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300">Hire
                             Me</a>
@@ -85,7 +86,7 @@
                 </div>
             </div>
         </nav>
-
+            <div class="h-20"></div>
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
@@ -100,37 +101,28 @@
   <img src="~/images/dotnet.png" class="floating-logo right-10 bottom-10" alt=".NET" />
 </div>
 
+<button id="scrollToTopBtn" 
+  class="hidden fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 z-50">
+  ↑
+</button>
 
 
-    <footer class="border-top footer text-muted">
+    <!-- <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2025 - MyPortfolio - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer> -->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
-        // Mobile menu toggle
-        document.getElementById("menu-toggle").addEventListener("click", function () {
-            const menu = document.getElementById("mobile-menu");
-            menu.classList.toggle("hidden");
-        });
-    </script>
-     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
     duration:1000;
     once: true;
   </script>
-   <script>
-    function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-  </script>
+   <>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
